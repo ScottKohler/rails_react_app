@@ -14,3 +14,7 @@ Post.destroy_all
         body: Faker::Lorem.paragraph(sentence_count: 3)
     )
 end
+
+
+#ActiveRecord::Base.connection.execute("BEGIN TRANSACTION; END;")
+# use this to unlock db -- rails c - ActiveRecord::Base.connection.execute("BEGIN TRANSACTION; END;")
