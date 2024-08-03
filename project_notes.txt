@@ -123,11 +123,18 @@ github
   new issue
   create a branch
   assign to self, name it 
+  
+  
+  I thnk I missed these:
+  git checkout main
+  git pull 
+  
+  
   create branch button - copy the generated statements and run them in local clone:
 
     git fetch origin
     git checkout 5-new-post-from
-    feedback
+    feedback:
                         16315@DESKTOP-8R1P5Q2 MINGW64 /c/projects/rails_projects/RailsReactDeanin/api/react_rails (5-new-post-form)
                     $ git fetch origin
                     remote: Enumerating objects: 1, done.
