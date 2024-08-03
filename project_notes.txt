@@ -116,3 +116,27 @@ after a few days of not rendering single post
 damn
 React component names are Capitalized....
 
+
+git hub workflow
+-------------------------
+github  
+  new issue
+  create a branch
+  assign to self, name it 
+  create branch button
+    git fetch origin
+    git checkout 5-new-post-from
+  now on new branch(5-new-post-from)  
+  ------
+  write code
+  ------
+  
+        commit changes: ____ capture them here
+
+
+
+
+
+
+
+
