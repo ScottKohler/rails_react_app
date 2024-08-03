@@ -123,20 +123,107 @@ github
   new issue
   create a branch
   assign to self, name it 
-  create branch button
+  
+  
+  I thnk I missed these:
+  git checkout main
+  git pull 
+  
+  
+  create branch button - copy the generated statements and run them in local clone:
+
     git fetch origin
     git checkout 5-new-post-from
+    feedback:
+                        16315@DESKTOP-8R1P5Q2 MINGW64 /c/projects/rails_projects/RailsReactDeanin/api/react_rails (5-new-post-form)
+                    $ git fetch origin
+                    remote: Enumerating objects: 1, done.
+                    remote: Counting objects: 100% (1/1), done.
+                    remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+                    Unpacking objects: 100% (1/1), 904 bytes | 17.00 KiB/s, done.
+                    From github.com:ScottKohler/rails_react_app
+                    * [new branch]      7-change-index-page-to-have-links-to-posts -> origin/7-change-index-page-to-have-links-to-posts
+                      7beed17..8b32cb6  main       -> origin/main
+
+                    16315@DESKTOP-8R1P5Q2 MINGW64 /c/projects/rails_projects/RailsReactDeanin/api/react_rails (5-new-post-form)
+                    $ git checkout 7-change-index-page-to-have-links-to-posts
+                    Switched to a new branch '7-change-index-page-to-have-links-to-posts'
+                    M       project_notes.txt
+                    Branch '7-change-index-page-to-have-links-to-posts' set up to track remote branch '7-change-index-page-to-have-links-to-posts' from 'origin'.
+
+
+
+
+
+
   now on new branch(5-new-post-from)  
   ------
   write code
   ------
   
-        commit changes: ____ capture them here
+commit changes: ____ capture them here
+------------
+$ git status 
+      On branch 5-new-post-form
+      Your branch is up to date with 'origin/5-new-post-form'.
+
+      
+      Changes not staged for commit:
+        (use "git add <file>..." to update what will be committed)
+        (use "git restore <file>..." to discard changes in working directory)
+              
+              //red
+              modified:   app/controllers/api/v1/posts_controller.rb
+              modified:   project_notes.txt
+              modified:   react_client/src/components/AppRoutes.jsx
+
+      Untracked files:
+        (use "git add <file>..." to include in what will be committed)
+              react_client/src/features/posts/NewPostForm.jsx
+
+      no changes added to commit (use "git add" and/or "git commit -a")
+
+$ git add .
+
+$ git status
+  On branch 5-new-post-form
+  Your branch is up to date with 'origin/5-new-post-form'.
+
+  Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+
+        //green
+        modified:   app/controllers/api/v1/posts_controller.rb
+        modified:   project_notes.txt
+        modified:   react_client/src/components/AppRoutes.jsx
+        new file:   react_client/src/features/posts/NewPostForm.jsx
+
+$ git commit -m "Implemented new post form"
+    [5-new-post-form 3cccfd4] Implemented new post form
+    4 files changed, 113 insertions(+), 3 deletions(-)
+    create mode 100644 react_client/src/features/posts/NewPostForm.jsx
 
 
 
+$ git push
+  Enumerating objects: 28, done.
+  Counting objects: 100% (28/28), done.
+  Delta compression using up to 8 threads
+  Compressing objects: 100% (12/12), done.
+  Writing objects: 100% (15/15), 2.19 KiB | 1.09 MiB/s, done.
+  Total 15 (delta 7), reused 0 (delta 0)
+  remote: Resolving deltas: 100% (7/7), completed with 7 local objects.
+  To github.com:ScottKohler/rails_react_app.git
+    7beed17..3cccfd4  5-new-post-form -> 5-new-post-form
 
 
+over to github
+  Code
+  Compare and Pull Request
+  Create pull Request
+  Merge pull Request
+  Confirm Merge - successfully merged abd closed
+  Delete branch -  deleted the 5-new-post-form branch now
 
 
-
+  
