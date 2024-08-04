@@ -226,4 +226,15 @@ over to github
   Delete branch -  deleted the 5-new-post-form branch now
 
 
-  
+edit url correct form:
+http://localhost:5173/posts/61/edit
+
+----------------------------
+08.04.2024 0630:
+--
+only delete functionality left to Implemented
+think about:
+ fetch
+ updates
+ note component bloat, whick like rails controller, the desire is a lean codebase
+ 
