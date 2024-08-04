@@ -16,9 +16,7 @@ function EditPostForm() {
       try {
         const response = await fetch(`${API_URL}/${id}`);
         if(response.ok) {
-
           console.log("response:", response);
-
           const json = await response.json();
           setPost(json);
         } else{
@@ -32,7 +30,6 @@ function EditPostForm() {
     }
     fetchCurrentPost();
   }, [id]);
-
 
   //define handleSubmit
   const handleSubmit = async(e) => {
@@ -56,14 +53,12 @@ function EditPostForm() {
         console.log("Success", json);
         navigate(`/posts/${id}`);
 
-
       } else {
         throw response;
       }
     }
-    catch(e){
-      console.log("an error has occurred", e);
-      
+    catch(e) {
+      console.log("an error has occurred", e);    
     }
 
   };
