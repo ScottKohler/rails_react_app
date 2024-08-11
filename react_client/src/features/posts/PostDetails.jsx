@@ -1,6 +1,7 @@
 import React, { useEffect, useState  } from "react";
 import { useParams, useNavigate, Link  } from "react-router-dom";
 import { API_URL } from "../../constants";
+import { deletePost /*as DeletePostService*/, fetchPost, } from "../../services/postService";
 
 function PostDetails() {
     const [post, setPost] = useState(null);
@@ -11,50 +12,29 @@ function PostDetails() {
     console.log("in PostDetails..")
     // similar to index page:
 
-    useEffect(() => {
+    useEffect(() => {       
         const fetchCurrentPost = async () => {
             try {
-
-                console.log("response_string",API_URL);
-
-                const response = await fetch(`${API_URL}/${id}`);
-
-                console.log("_response", response );
-
-                if (response.ok) {
-                    console.log("__await fetch/response");
-                    const json = await response.json();
-
-                    console.log("__returned json", json);
-                    //json is returned correctly, it is just not rendering correctly....
-
-                    setPost(json);  // this should render single post
-                } else {
-                    console.log("ErroR");
-                    throw response;
-                }
+                const json = await fetchPost(id);
+                setPost(json);            
             } catch(e) {
-              console.log('An error has occurred', e);
+                console.log("An error has occurred", e);
             }
         };
         fetchCurrentPost();
-    }, [ id ]);  //change based on id, so put id in this array
-    
-    const deletePost = async () => {
-      try {
-        const response = await fetch(`${API_URL}/${id}`, {
-            method: 'DELETE', 
-          });
+    }, [id]);
 
-          if (response.ok) {
-            navigate('/');
-          } else {
-            throw response;  
-          }
-        } catch( error ) {
-          console.error(error);  
-        }
+    
+    /* deletePost */
+    const deletePostHandler = async () => {
+      try {
+        await deletePost(post.id);    //overfloew cause   
+        navigate("/");
+      } catch (error) {
+        console.error ("Failed to delete the post", error);
+      }          
     };
+
 
     console.log("post", post)
     if(!post) return <h2>Loading...</h2>
@@ -67,7 +47,7 @@ function PostDetails() {
             {" | "}
             <Link to="/">Back to Posts</Link>
             {" | "}
-            <button onClick={deletePost}>Delete</button>
+            <button onClick={deletePostHandler}>Delete</button>
         </div>
     );
 }
