@@ -1,6 +1,6 @@
 import{ useState } from "react";
 import { useNavigate } from "react-router-dom"; 
-import { API_URL }  from "../../constants";
+import {createPost} from "../../services/postService";
 
 // const handleSubmit = async (e) => {
 //     e.preventDefault(); //dont want this to redirect
@@ -30,21 +30,21 @@ function NewPostForm() {
     
         const postData = {title, body};
     
-        const response = await fetch(API_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(postData ),
-        });
+        // const response = await fetch(API_URL, { //factor to PostService
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify(postData ),
+        // });
 
-        if(response.ok) {
-            console.log("all is fine.");
-            const { id } = await response.json();
-            navigate(`/posts/${id}`);
-        } else {
-            console.log("An error has occurred.");
+        try{
+            const response = await createPost(postData);
+            navigate(`/posts/${response.id}`);
+        } catch(e) {
+            console.error("Failed to create post ", e);
         }
+
     };
 
     return(

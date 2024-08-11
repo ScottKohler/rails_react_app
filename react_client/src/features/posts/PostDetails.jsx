@@ -1,7 +1,7 @@
 import React, { useEffect, useState  } from "react";
 import { useParams, useNavigate, Link  } from "react-router-dom";
 import { API_URL } from "../../constants";
-import { deletePost as DeletePostService, fetchPost, } from "../../services/postService";
+import { deletePost /*as DeletePostService*/, fetchPost, } from "../../services/postService";
 
 function PostDetails() {
     const [post, setPost] = useState(null);
@@ -26,9 +26,9 @@ function PostDetails() {
 
     
     /* deletePost */
-    const deletePost = async () => {
+    const deletePostHandler = async () => {
       try {
-        await deletePost(post.id);        
+        await deletePost(post.id);    //overfloew cause   
         navigate("/");
       } catch (error) {
         console.error ("Failed to delete the post", error);
@@ -47,7 +47,7 @@ function PostDetails() {
             {" | "}
             <Link to="/">Back to Posts</Link>
             {" | "}
-            <button onClick={deletePost}>Delete</button>
+            <button onClick={deletePostHandler}>Delete</button>
         </div>
     );
 }
