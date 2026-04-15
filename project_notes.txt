@@ -1,6 +1,6 @@
 project notes
 --------------------------
-
+1966 Chevrolet Caprice L-72 427 / 425bhp
 07.22.24
 ---------
 React on Rails part 2 8:13
